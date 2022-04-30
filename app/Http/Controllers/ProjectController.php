@@ -40,7 +40,8 @@ class ProjectController extends Controller
 
         $projectData = $request->all();
         $validator = Validator::make($projectData,[
-
+            "name" => ["required","string","max:50"],
+            "assignee"
         ]);
         $project = new Project;
         $creator = User::find($creatorID);
