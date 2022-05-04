@@ -39,10 +39,12 @@ class ProjectController extends Controller
         $projectData = $request->all();
         $project = new Project;
         $creator = User::find($creatorID);
+        $assignee = User::find($projectData['assigneeID']);
 
         $project->name = $projectData['name'];
 
         $project->creator()->associate($creator)->save();
+        $project->assignee()->associate($assignee)->save();
         $project->save();
 
         return [
