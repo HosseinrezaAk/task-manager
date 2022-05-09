@@ -8,11 +8,10 @@ Route::group(
     function() {
         /**
          * get-all-projects
-         *
+         * get-projects
          */
 
-//        Route::post('get-projects', 'ProjectController@getProjects');
-//        // todo make this REST, this should be destroy action
+
 //        Route::post('multi-remove-projects', 'ProjectController@multiRemoveProjects');
 //        // todo make this REST, this should be like /projects/{id}/image/{id}
 //        Route::post('remove-project-image', 'ProjectController@removeProjectImage');
