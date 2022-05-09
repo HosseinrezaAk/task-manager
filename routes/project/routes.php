@@ -10,10 +10,7 @@ Route::group(
          * get-all-projects
          *
          */
-//        /**
-//         * define POST method routes
-//         * todo make this REST, this should be index action
-//         */
+
 //        Route::post('get-projects', 'ProjectController@getProjects');
 //        // todo make this REST, this should be destroy action
 //        Route::post('multi-remove-projects', 'ProjectController@multiRemoveProjects');
