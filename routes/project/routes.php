@@ -9,11 +9,11 @@ Route::group(
         /**
          * get-all-projects
          * get-projects
+         * remove-multiple-projects
          */
 
 
-//        Route::post('multi-remove-projects', 'ProjectController@multiRemoveProjects');
-//        // todo make this REST, this should be like /projects/{id}/image/{id}
+
 //        Route::post('remove-project-image', 'ProjectController@removeProjectImage');
 //
 //        /**
