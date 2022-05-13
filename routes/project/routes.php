@@ -12,10 +12,6 @@ Route::group(
          * remove-multiple-projects
          */
 
-
-
-//        Route::post('remove-project-image', 'ProjectController@removeProjectImage');
-//
 //        /**
 //         * define REST route
 //         */
