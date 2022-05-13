@@ -11,10 +11,10 @@ Route::group(
          * get-projects
          * remove-multiple-projects
          * store
+         * update
          */
 
 
-//        Route::post('/{id}', 'ProjectController@update');
 //        Route::delete('/{id}', 'ProjectController@destroy');
     }
 );
