@@ -10,12 +10,10 @@ Route::group(
          * get-all-projects
          * get-projects
          * remove-multiple-projects
+         * store
          */
 
-//        /**
-//         * define REST route
-//         */
-//        Route::post('', 'ProjectController@store');
+
 //        Route::post('/{id}', 'ProjectController@update');
 //        Route::delete('/{id}', 'ProjectController@destroy');
     }
