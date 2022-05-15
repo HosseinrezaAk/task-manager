@@ -12,10 +12,8 @@ Route::group(
          * remove-multiple-projects
          * store
          * update
+         * destroy
          */
-
-
-//        Route::delete('/{id}', 'ProjectController@destroy');
     }
 );
 //
