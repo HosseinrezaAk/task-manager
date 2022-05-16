@@ -14,15 +14,7 @@ Route::group(
          * update
          * destroy
          * index
-         * show
+         * show{userID}{projectID}
          */
     }
 );
-//
-//Route::group(
-//    ['prefix' => 'projects', 'middleware' => ['auth:api', 'isActive']],
-//    function () {
-//        Route::get('{userID}', 'ProjectController@index');
-//        Route::get('/{userID}/{projectID}', 'ProjectController@show');
-//    }
-//);
