@@ -13,6 +13,8 @@ Route::group(
          * store
          * update
          * destroy
+         * index
+         * show
          */
     }
 );
