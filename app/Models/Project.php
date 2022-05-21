@@ -15,6 +15,6 @@ class Project extends Model
     ];
 
     public function tasks(){
-        return $this->hasMany(Task::class,'project_id','tasks_ids');
+        return $this->hasMany(Task::class);
     }
 }
