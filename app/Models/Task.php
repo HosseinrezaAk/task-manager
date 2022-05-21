@@ -14,4 +14,8 @@ class Task extends Model
         'name',
         'creator'
     ];
+
+    public function project(){
+
+    }
 }
