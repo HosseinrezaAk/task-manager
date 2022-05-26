@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::post('/create',[TeamController::class,'store']);
     Route::get('/{id}',[TeamController::class,'show']);
+
         /**
          * update
          * show-all-teams

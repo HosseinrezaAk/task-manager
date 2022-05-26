@@ -11,11 +11,14 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function index()
     {
-
+        $teams = Team::all();
+        return [
+          'result'=> $teams,
+        ];
     }
 
 
