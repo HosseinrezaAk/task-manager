@@ -98,6 +98,7 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
+        $team = Team::find($id);
 
     }
 }
