@@ -101,6 +101,8 @@ class TeamController extends Controller
         $team = Team::find($id);
         $team->delete();
 
-
+        return [
+            'status'=>'success'
+        ];
     }
 }
