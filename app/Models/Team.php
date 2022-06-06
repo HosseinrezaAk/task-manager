@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 /**
+ * @property string _id
  * @property string name
  */
 class Team extends Model
