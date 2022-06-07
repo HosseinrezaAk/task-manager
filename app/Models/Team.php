@@ -16,4 +16,8 @@ class Team extends Model
     use HasFactory;
 
     protected $collection = "tm_team";
+
+    protected $fillable = [
+      "name"
+    ];
 }
