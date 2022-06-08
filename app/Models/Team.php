@@ -20,4 +20,5 @@ class Team extends Model
     protected $fillable = [
       "name"
     ];
+    protected $primaryKey = "_id";
 }
