@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -36,7 +37,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request, $creatorID)
     {
+
         $projectData = $request->all();
+        $validator = Validator::make($projectData,[
+
+        ]);
         $project = new Project;
         $creator = User::find($creatorID);
         $assignee = User::find($projectData['assigneeID']);
