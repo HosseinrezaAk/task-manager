@@ -21,4 +21,8 @@ class Team extends Model
       "name"
     ];
     protected $primaryKey = "_id";
+
+    public function users(){
+        return $this->belongsToMany(User::class,"", "","");
+    }
 }
