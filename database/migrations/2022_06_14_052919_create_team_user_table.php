@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+    protected $collection = "tm_team_user_pivot"
     /**
      * Run the migrations.
      *
@@ -13,9 +15,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_user', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create(
+            $this->collection,
+            function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
         });
     }
 
