@@ -21,6 +21,7 @@ return new class extends Migration
 //                $table->id();
                 $table->string("_id");
                 $table->string("team_id")->references("_id")->on("tm_teams");
+                $table->string("user_id")->refrences("_id")->on("tm_users");
                 $table->timestamps();
         });
     }
