@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    protected $collection = "tm_team_user_pivot"
+    protected $collection = "tm_team_user_pivot";
     /**
      * Run the migrations.
      *
@@ -20,6 +20,7 @@ return new class extends Migration
             function (Blueprint $table) {
 //                $table->id();
                 $table->string("_id");
+                $table->string("team_id")->references("_id")->on("tm_teams");
                 $table->timestamps();
         });
     }
