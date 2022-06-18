@@ -84,10 +84,16 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function destroy($id)
     {
-        //
+        $user = User::query()->where('_id',$id)->get();
+        echo $user;
+        $user->delete();
+
+        return [
+            'status'=> 'success'
+        ];
     }
 }
