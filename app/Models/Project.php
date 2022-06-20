@@ -13,4 +13,8 @@ class Project extends Model
         'name',
 
     ];
+
+    public function tasks(){
+
+    }
 }
