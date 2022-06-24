@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     ['prefix' => 'users'],
     function () {
-//        /**
-//         * define GET method routes
-//         * todo make this REST, this should be integrated into index action, with `type` filter
-//         */
-//        Route::get('by-type/{type}', 'UserController@getByType');
-//
+
 //        /**
 //         * define POST method routes
 //         * todo make this REST, this should be index action
