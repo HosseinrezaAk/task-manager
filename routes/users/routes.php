@@ -11,12 +11,9 @@ Route::group(
 
         /**
          * get-users: for showing all the users
-         *
+         * delete-multiple-users
          */
 
-//
-//        // todo make this REST, this should be integrated into destroy action
-//        Route::post('remove-multiple-users', 'UserController@removeMultipleUsers');
 //        // todo make this REST, this should be integrated into update action
 //        Route::patch('change-password', 'UserController@changePassword');
 //
