@@ -17,7 +17,6 @@ Route::group(
          */
 
 
-//        Route::get('', 'UserController@index');
 //        Route::post('', 'UserController@store');
 //        Route::delete('/{id}', 'UserController@destroy');
 //
