@@ -13,6 +13,7 @@ Route::group(
          * get-users: for showing all the users
          * delete-multiple-users
          * change-password : Hard
+         * index : to show
          */
 
 
