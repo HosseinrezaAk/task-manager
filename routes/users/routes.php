@@ -9,11 +9,11 @@ Route::group(
     ['prefix' => 'users'],
     function () {
 
-//        /**
-//         * define POST method routes
-//         * todo make this REST, this should be index action
-//         */
-//        Route::post('get-users', 'UserController@getUsers');
+        /**
+         * get-users: for showing all the users
+         *
+         */
+
 //
 //        // todo make this REST, this should be integrated into destroy action
 //        Route::post('remove-multiple-users', 'UserController@removeMultipleUsers');
