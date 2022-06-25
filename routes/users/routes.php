@@ -12,11 +12,10 @@ Route::group(
         /**
          * get-users: for showing all the users
          * delete-multiple-users
+         * change-password : Hard
          */
 
-//        // todo make this REST, this should be integrated into update action
-//        Route::patch('change-password', 'UserController@changePassword');
-//
+
 //        Route::get('', 'UserController@index');
 //        Route::post('', 'UserController@store');
 //        Route::delete('/{id}', 'UserController@destroy');
