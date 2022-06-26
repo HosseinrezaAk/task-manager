@@ -6,12 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     ['prefix' => 'projects'],
     function() {
-//        /**
-//         * define GET method routes
-//         * todo make this REST, this should be index action
-//         */
-//        Route::get('get-all-projects', 'ProjectController@getAllProjects');
-//
+        /**
+         * get-all-projects
+         *
+         */
 //        /**
 //         * define POST method routes
 //         * todo make this REST, this should be index action
