@@ -28,8 +28,8 @@ Route::group(
 //        Route::post('', 'ProjectController@store');
 //        Route::post('/{id}', 'ProjectController@update');
 //        Route::delete('/{id}', 'ProjectController@destroy');
-//    }
-//);
+    }
+);
 //
 //Route::group(
 //    ['prefix' => 'projects', 'middleware' => ['auth:api', 'isActive']],
