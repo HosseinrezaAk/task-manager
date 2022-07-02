@@ -92,7 +92,9 @@ class TeamController extends Controller
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
         foreach ($userIDs as $userID){
-
+            $user = User::find($userID);
+            $user->teams()->attach($team);
+            $team->users()->attach($user);
         }
         $team->save();
         return [
