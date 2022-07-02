@@ -83,7 +83,7 @@ class TeamController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function update(Request $request, $id)
     {
@@ -92,10 +92,13 @@ class TeamController extends Controller
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
         foreach ($userIDs as $userID){
-            $user = User::find($userID);
-            $user->teams()->attach($team);
-            $team->users()->attach($user);
+
         }
+        $team->save();
+        return [
+            'status'=>'success',
+            'result'=> $team
+        ];
     }
 
     /**

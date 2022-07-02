@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/{id}',[TeamController::class,'show']);
     Route::get('/',[TeamController::class,'index']);
     Route::delete('/{id}',[TeamController::class,'destroy']);
-
+    Route::patch('/{id}',[TeamController::class,'update']);
         /**
          * update
          * show-all-teams
