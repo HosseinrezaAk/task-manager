@@ -87,7 +87,15 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $teamData = $request->all();
         $team = Team::find($id);
+        $team->name = $teamData['name'];
+        $userIDs = $teamData['userIDs'];
+        foreach ($userIDs as $userID){
+            $user = User::find($userID);
+            $user->teams()->attach($team);
+            $team->users()->attach($user);
+        }
     }
 
     /**
