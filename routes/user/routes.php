@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
         Route::post('/create',[UserController::class,'store']);
+        Route::delete('/delete',[UserController::class,'delete']);
         /**
          * get-users: for showing all the users
          * delete-multiple-users
