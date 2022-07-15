@@ -16,14 +16,9 @@ Route::group(
          * index : to show
          * store : to create data and store in DB
          * destroy: to delete a data with given ID form DB
+         * show-user-teams : to show the user's teams
          */
 
-
-
-
-//
-//
-//        Route::get('show-user-teams', [UserController::class, 'showUserTeams']);
     }
 );
 
