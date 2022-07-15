@@ -15,11 +15,12 @@ Route::group(
          * change-password : Hard
          * index : to show
          * store : to create data and store in DB
+         * destroy: to delete a data with given ID form DB
          */
 
 
 
-//        Route::delete('/{id}', 'UserController@destroy');
+
 //
 //
 //        Route::get('show-user-teams', [UserController::class, 'showUserTeams']);
