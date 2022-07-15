@@ -14,10 +14,11 @@ Route::group(
          * delete-multiple-users
          * change-password : Hard
          * index : to show
+         * store : to create data and store in DB
          */
 
 
-//        Route::post('', 'UserController@store');
+
 //        Route::delete('/{id}', 'UserController@destroy');
 //
 //
