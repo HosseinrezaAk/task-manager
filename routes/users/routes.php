@@ -17,6 +17,7 @@ Route::group(
          * store : to create data and store in DB
          * destroy: to delete a data with given ID form DB
          * show-user-teams : to show the user's teams
+         * show: to show specific user
          */
 
     }
@@ -25,7 +26,6 @@ Route::group(
 //Route::group(
 //    ['prefix' => 'users', 'middleware' => ['auth:api', 'isActive']],
 //    function () {
-//        Route::get('/{userID}', 'UserController@show');
 //        Route::patch('/{id}', 'UserController@update');
 //    }
 //);
