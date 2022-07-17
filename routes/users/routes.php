@@ -23,11 +23,3 @@ Route::group(
 
     }
 );
-
-//Route::group(
-//    ['prefix' => 'users', 'middleware' => ['auth:api', 'isActive']],
-//    function () {
-
-//    }
-//);
-
