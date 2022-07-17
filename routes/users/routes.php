@@ -18,6 +18,7 @@ Route::group(
          * destroy: to delete a data with given ID form DB
          * show-user-teams : to show the user's teams
          * show: to show specific user
+         * update : to update single row
          */
 
     }
@@ -26,7 +27,7 @@ Route::group(
 //Route::group(
 //    ['prefix' => 'users', 'middleware' => ['auth:api', 'isActive']],
 //    function () {
-//        Route::patch('/{id}', 'UserController@update');
+
 //    }
 //);
 
