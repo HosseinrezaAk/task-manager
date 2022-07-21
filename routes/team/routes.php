@@ -12,9 +12,10 @@ Route::group(
     function() {
         /**
          * update
+         * show-all-teams
          */
 
-        Route::get('show-all-teams',[TeamController::class,'showAllTeams']);
+
         Route::post('get-teams',[TeamController::class,'getTeams']); // show teams with paginator
         Route::get('get-team-leader',[TeamController::class,'getTeamLeader']);
         Route::post('delete-multiple-teams',[TeamController::class,'deleteMultiple']);
