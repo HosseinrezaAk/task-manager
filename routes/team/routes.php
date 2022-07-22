@@ -13,11 +13,12 @@ Route::group(
         /**
          * update
          * show-all-teams
+         * get-team-leader
          */
 
 
-        Route::post('get-teams',[TeamController::class,'getTeams']); // show teams with paginator
-        Route::get('get-team-leader',[TeamController::class,'getTeamLeader']);
+
+
         Route::post('delete-multiple-teams',[TeamController::class,'deleteMultiple']);
         Route::get('get-members-tasks', [TeamController::class,'getMembersTasks']);
     }
