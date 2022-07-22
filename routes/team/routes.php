@@ -14,13 +14,14 @@ Route::group(
          * update
          * show-all-teams
          * get-team-leader
+         * delete-multiple-team
+         * get-member-task : team leader will see the tasks of specific member
          */
 
 
 
 
-        Route::post('delete-multiple-teams',[TeamController::class,'deleteMultiple']);
-        Route::get('get-members-tasks', [TeamController::class,'getMembersTasks']);
+
     }
 );
 Route::group(
