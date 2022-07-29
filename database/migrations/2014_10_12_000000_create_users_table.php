@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create(
             $this->collection ,
             function (Blueprint $table) {
-            $table->string('_id')->unique();
+            $table->string('_id');
             $table->string('username')->unique();
             $table->string('password');
             $table->rememberToken();
