@@ -17,7 +17,7 @@ class User extends Authenticatable
 
     /** Database collection  */
 
-//    protected $collection = "_users";
+    protected $collection = "tm_users";
 
     /**
      * The attributes that are mass assignable.

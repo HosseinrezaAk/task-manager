@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+//use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Jenssegers\Mongodb\Schema\Blueprint;
 
 return new class extends Migration
 {
+    protected $collection = "tm_users";
     /**
      * Run the migrations.
      *
@@ -13,7 +15,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create(
+            $this->collection
+            , function (Blueprint $table) {
 //            $table->id();
             $table->string('id')->unique()->nullable();
             $table->string('name');
