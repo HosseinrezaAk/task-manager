@@ -17,7 +17,7 @@ class User extends Authenticatable
 
     /** Database collection  */
 
-    protected $collection = "taskManager2x_users";
+//    protected $collection = "taskManager2x_users";
 
     /**
      * The attributes that are mass assignable.
