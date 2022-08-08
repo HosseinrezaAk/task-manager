@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     ['prefix' => 'users'],
     function () {
-
+        Route::post('create',[UserController::class,'store']);
         /**
          * get-users: for showing all the users
          * delete-multiple-users
@@ -20,6 +20,7 @@ Route::group(
          * show: to show specific user
          * update : to update single row
          */
+
 
     }
 );
