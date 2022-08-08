@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Team;
 
@@ -35,7 +36,18 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teamData = $request->all();
+        $team = new Team;
+        $team->name = $teamData['name'];
+        $userIDs = $teamData['userIDs'];
+        foreach($userIDs as $userId){
+            $userTemp = User::query()->where("_id",$userId)->first();
+            $team->users()->save($userTemp);
+        }
+
+
+
+
     }
 
     /**

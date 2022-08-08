@@ -23,6 +23,6 @@ class Team extends Model
     protected $primaryKey = "_id";
 
     public function users(){
-        return $this->belongsToMany(User::class,"team_user_pivot", "team_id","user_id");
+        return $this->belongsToMany(User::class,"tm_team_user_pivot", "team_id","user_id");
     }
 }

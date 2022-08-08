@@ -56,6 +56,6 @@ class User extends Eloquent
     ];
 
     public function teams(){
-        return $this->belongsToMany(Team::class,"team_user_pivot","user_id","team_id");
+        return $this->belongsToMany(Team::class,"tm_team_user_pivot","user_id","team_id");
     }
 }
