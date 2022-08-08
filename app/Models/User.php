@@ -13,8 +13,9 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 /**
  * @property string _id
  * @property string name
+ * @property string password
  */
-class User extends Authenticatable
+class User extends Eloquent
 {
     use HasApiTokens, HasFactory, Notifiable;
 

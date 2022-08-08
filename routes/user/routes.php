@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     ['prefix' => 'users'],
     function () {
-        Route::post('create',[UserController::class,'store']);
+        Route::post('/create',[UserController::class,'store']);
         /**
          * get-users: for showing all the users
          * delete-multiple-users
