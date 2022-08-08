@@ -18,6 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
+    protected $namespace = 'App\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -26,9 +27,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+
+
+            $this->routes(function () {
+
+            Route::middleware('api')
+                ->prefix('users')
+                ->group(base_path('routes/user/routes.php'));
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
@@ -48,5 +56,48 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
+    }
+
+
+    public function map()
+    {
+
+        $this->mapUserRoutes();
+
+
+        $this->mapTaskRoutes();
+
+        $this->mapProjectRoutes();
+
+        $this->mapTeamRoutes();
+
+    }
+
+
+
+    protected function mapUserRoutes()
+    {
+        Route::middleware(['auth:api'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/user/routes.php'));
+    }
+
+    protected function mapTeamRoutes()
+    {
+        Route::middleware(['auth:api'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/team/routes.php'));
+    }
+    protected function mapTaskRoutes()
+    {
+        Route::middleware(['auth:api'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/task/routes.php'));
+    }
+    protected function mapProjectRoutes()
+    {
+        Route::middleware(['auth:api'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/project/routes.php'));
     }
 }

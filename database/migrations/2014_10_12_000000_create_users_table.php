@@ -19,7 +19,7 @@ return new class extends Migration
             $this->collection ,
             function (Blueprint $table) {
             $table->string('_id');
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

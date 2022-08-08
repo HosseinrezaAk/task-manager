@@ -4,10 +4,8 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// define admin routes here
-Route::group(
-    ['prefix' => 'users'],
-    function () {
+
+
         Route::post('/create',[UserController::class,'store']);
         /**
          * get-users: for showing all the users
@@ -21,6 +19,3 @@ Route::group(
          * update : to update single row
          */
 
-
-    }
-);
