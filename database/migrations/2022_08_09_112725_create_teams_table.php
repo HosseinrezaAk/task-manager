@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
-    protected $collection = "tm_team_user_pivot";
     /**
      * Run the migrations.
      *
@@ -15,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create(
-            $this->collection,
-            function (Blueprint $table) {
-//                $table->id();
-                $table->string("_id");
-                $table->string("team_id");
-                $table->string("user_id");
-                $table->timestamps();
+        Schema::create('teams', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_user');
+        Schema::dropIfExists('teams');
     }
 };
