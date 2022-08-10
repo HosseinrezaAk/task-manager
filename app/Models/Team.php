@@ -17,5 +17,8 @@ class Team extends Model
 
     protected $collection = "tm_team";
 
+    protected $fillable = [
+        "name"
+    ];
 
 }
