@@ -19,7 +19,8 @@ return new class extends Migration
             $this->collection,
             function (Blueprint $table) {
 //                $table->id();
-
+                $table->string("_id");
+                $table->string("name");
                 $table->timestamps();
         });
     }
