@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+    protected $collection = "tm_team";
     /**
      * Run the migrations.
      *
@@ -13,9 +15,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create(
+            $this->collection,
+            function (Blueprint $table) {
+//                $table->id();
+
+                $table->timestamps();
         });
     }
 
