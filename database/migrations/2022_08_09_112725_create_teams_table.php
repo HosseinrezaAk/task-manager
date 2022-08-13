@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    protected $collection = "tm_team";
+    protected $collection = "tm_teams";
     /**
      * Run the migrations.
      *

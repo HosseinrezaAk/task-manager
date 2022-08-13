@@ -15,12 +15,11 @@ class Team extends Model
 {
     use HasFactory;
 
-    protected $collection = "tm_team";
+    protected $collection = "tm_teams";
 
     protected $fillable = [
         "name"
     ];
-    protected $primaryKey = "_id";
 
     public function users(){
         return $this->belongsToMany(User::class,"tm_team_user_pivot", "team_id","user_id");

@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Jenssegers\Mongodb\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
@@ -15,7 +16,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
  * @property string name
  * @property string password
  */
-class User extends Eloquent
+class User extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -34,7 +35,6 @@ class User extends Eloquent
         'username',
         'password',
     ];
-    protected $primaryKey  = "_id";
 
     /**
      * The attributes that should be hidden for serialization.
