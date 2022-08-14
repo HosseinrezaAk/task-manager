@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Schema\Blueprint;
 
 return new class extends Migration
 {
-    protected $collection = "tm_users";
+//    protected $collection = "tm_users";
     /**
      * Run the migrations.
      *
@@ -16,9 +16,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create(
-            $this->collection ,
+            'users' ,
             function (Blueprint $table) {
-            $table->string('_id');
+            $table->id();
             $table->string('username');
             $table->string('password');
             $table->rememberToken();
