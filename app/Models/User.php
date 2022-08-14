@@ -24,7 +24,6 @@ class User extends Model
 
     /** Database collection  */
 
-    protected $collection = "tm_users";
 
     /**
      * The attributes that are mass assignable.
@@ -55,7 +54,5 @@ class User extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public function teams(){
-        return $this->belongsToMany(Team::class,"tm_team_user_pivot","user_id","team_id");
-    }
+
 }
