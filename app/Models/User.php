@@ -55,4 +55,11 @@ class User extends Model
     ];
 
 
+    /**
+     * Relations
+     */
+    public function teams()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
