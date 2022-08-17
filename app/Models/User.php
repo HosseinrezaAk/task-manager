@@ -54,5 +54,8 @@ class User extends Model
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function teams()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
