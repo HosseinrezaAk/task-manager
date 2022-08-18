@@ -35,7 +35,7 @@ class TeamController extends Controller
         foreach($userIDs as $userID)
         {
             $user = User::find($userID);
-            $user->teams()->save(new Team(['name'=>$teamData['name']]));
+            $user->teams()->save($team);
         }
         return [
           'status'=> 'success',
