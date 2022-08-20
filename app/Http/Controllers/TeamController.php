@@ -89,13 +89,27 @@ class TeamController extends Controller
     {
         $teamData = $request->all();
         $team = Team::find($id);
+        $teamOldUsers = $team->users_ids;
+
+        (json_encode($teamOldUsers));
+        $temp = [];
+        $userDiff = array_diff($teamData['userIDs'],$teamOldUsers);
+        $userDiff = array_merge($temp,$userDiff); // users who are not in that team anymore
+
+        /**
+         * Delete teamID from the teams_ids of those users they are not in the team anymore
+         */
+        foreach($userDiff as $user){
+
+        }
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
         foreach ($userIDs as $userID){
             $user = User::find($userID);
-            $user->teams()->attach($team);
-            $team->users()->attach($user);
+            $user->teams()->attach($team); // set the teamID for users
+
         }
+        $team->users()->sync($userIDs); // set the userIDs for the team
         $team->save();
         return [
             'status'=>'success',
