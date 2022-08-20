@@ -32,11 +32,17 @@ class TeamController extends Controller
         $team  = new Team;
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
+        echo(json_encode($team));
+        $team->save();
         foreach($userIDs as $userID)
         {
             $user = User::find($userID);
-            $user->teams()->save($team);
+            $user->teams()->attach($team);
+            $team->users()->attach($user);
+
         }
+
+
         return [
           'status'=> 'success',
 
