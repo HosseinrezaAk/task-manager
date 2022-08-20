@@ -4,23 +4,21 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-
+use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
 /**
  * @property string _id
  * @property string name
  * @property string password
  */
-class User extends Model
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-
+    protected $collection = 'tm_users';
 
     /** Database collection  */
 
@@ -56,6 +54,6 @@ class User extends Model
 
     public function teams()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,null,'teams_ids','users_ids');
     }
 }
