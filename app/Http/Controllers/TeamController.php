@@ -105,6 +105,9 @@ class TeamController extends Controller
             $theUser->save();
         }
 
+        /**
+         * Update name and users
+         */
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
         foreach ($userIDs as $userID){
@@ -124,7 +127,7 @@ class TeamController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string[]
      */
     public function destroy($id)
     {
