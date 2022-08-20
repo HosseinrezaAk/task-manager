@@ -15,7 +15,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
 
@@ -53,11 +53,15 @@ class TeamController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function show($id)
     {
-        //
+        $team = Team::find($id);
+
+        return [
+            'result' => $team
+        ];
     }
 
     /**
