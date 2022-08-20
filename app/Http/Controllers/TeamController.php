@@ -99,9 +99,12 @@ class TeamController extends Controller
         /**
          * Delete teamID from the teams_ids of those users they are not in the team anymore
          */
-        foreach($userDiff as $user){
-
+        foreach($userDiff as $userID){
+            $theUser = User::find($userID);
+            $theUser->teams()->detach($id);
+            $theUser->save();
         }
+
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
         foreach ($userIDs as $userID){
