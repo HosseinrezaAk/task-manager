@@ -32,7 +32,6 @@ class TeamController extends Controller
         $team  = new Team;
         $team->name = $teamData['name'];
         $userIDs = $teamData['userIDs'];
-        echo(json_encode($team));
         $team->save();
         foreach($userIDs as $userID)
         {
@@ -44,7 +43,8 @@ class TeamController extends Controller
 
 
         return [
-          'status'=> 'success',
+            'status'=> 'success',
+            'team' => $team
 
         ];
     }
