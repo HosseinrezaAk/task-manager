@@ -21,6 +21,6 @@ class Team extends Model
 
     public function users()
     {
-        return $this->belongsToMany(Team::class, null,'teams_ids','users_ids');
+        return $this->belongsToMany(User::class, null,'teams_ids','users_ids');
     }
 }
