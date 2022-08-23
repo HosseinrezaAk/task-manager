@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function teams()
     {
-        return $this->belongsToMany(User::class,null,'users_ids','teams_ids');
+        return $this->belongsToMany(Team::class,null,'users_ids','teams_ids');
     }
 }
