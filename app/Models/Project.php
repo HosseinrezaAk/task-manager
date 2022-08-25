@@ -8,4 +8,6 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    protected $collection = 'tm_projects';
+
 }
