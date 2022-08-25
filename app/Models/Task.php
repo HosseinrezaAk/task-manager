@@ -10,5 +10,8 @@ class Task extends Model
     use HasFactory;
 
     protected $collection = 'tm_tasks';
-
+    protected $fillable = [
+        'name',
+        'creator'
+    ];
 }
