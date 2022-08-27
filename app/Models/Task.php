@@ -15,5 +15,7 @@ class Task extends Model
         'creator'
     ];
 
-
+    public function project(){
+        return $this->belongsTo(Project::class);
+    }
 }
