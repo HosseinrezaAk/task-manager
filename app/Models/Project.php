@@ -23,5 +23,8 @@ class Project extends Model
     public function creator(){
         return $this->hasOne(User::class);
     }
+    public function assignee(){
+        return $this->hasOne(User::class);
+    }
 
 }
