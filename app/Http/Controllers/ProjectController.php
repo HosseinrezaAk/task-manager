@@ -41,6 +41,7 @@ class ProjectController extends Controller
         $project->name = $projectData['name'];
         $creator = User::find($creatorID);
         $project->creator()->save($creator);
+        $assignee = User::find($projectData['assigneeID']);
 
     }
 
