@@ -40,6 +40,7 @@ class ProjectController extends Controller
         $project = new Project;
         $project->name = $projectData['name'];
         $creator = User::find($creatorID);
+        $project->creator()->save($creator);
 
     }
 
