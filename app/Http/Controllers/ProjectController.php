@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -38,6 +39,8 @@ class ProjectController extends Controller
         $projectData = $request->all();
         $project = new Project;
         $project->name = $projectData['name'];
+        $creator = User::find($creatorID);
+
     }
 
     /**
