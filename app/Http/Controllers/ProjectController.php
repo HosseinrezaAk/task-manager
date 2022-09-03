@@ -42,8 +42,10 @@ class ProjectController extends Controller
         $assignee = User::find($projectData['assigneeID']);
 
         $project->name = $projectData['name'];
+
         $project->creator()->save($creator);
         $project->assignee()->save($assignee);
+        $project->save();
 
         return [
             'status'=>'success',
