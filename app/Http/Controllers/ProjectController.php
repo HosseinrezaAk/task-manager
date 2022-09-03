@@ -38,10 +38,11 @@ class ProjectController extends Controller
     {
         $projectData = $request->all();
         $project = new Project;
-        $project->name = $projectData['name'];
         $creator = User::find($creatorID);
-        $project->creator()->save($creator);
         $assignee = User::find($projectData['assigneeID']);
+
+        $project->name = $projectData['name'];
+        $project->creator()->save($creator);
         $project->assignee()->save($assignee);
     }
 
