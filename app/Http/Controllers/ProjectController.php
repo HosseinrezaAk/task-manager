@@ -32,7 +32,7 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function store(Request $request, $creatorID)
     {
@@ -44,6 +44,11 @@ class ProjectController extends Controller
         $project->name = $projectData['name'];
         $project->creator()->save($creator);
         $project->assignee()->save($assignee);
+
+        return [
+            'status'=>'success',
+            'response' => $project
+        ];
     }
 
     /**
