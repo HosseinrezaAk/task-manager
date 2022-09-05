@@ -43,8 +43,8 @@ class ProjectController extends Controller
 
         $project->name = $projectData['name'];
 
-        $project->creator()->save($creator);
-        $project->assignee()->save($assignee);
+        $project->creator()->associate($creator)->save();
+        $project->assignee()->associate($assignee)->save();
         $project->save();
 
         return [

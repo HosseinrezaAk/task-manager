@@ -21,10 +21,10 @@ class Project extends Model
 
 
     public function creator(){
-        return $this->hasOne(User::class,'project_id','creator_id');
+        return $this->belongsTo(User::class);
     }
     public function assignee(){
-        return $this->hasOne(User::class,'project_id','assignee_id');
+        return $this->belongsTo(User::class);
     }
 
 }
