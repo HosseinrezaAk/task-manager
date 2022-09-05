@@ -23,8 +23,5 @@ class Project extends Model
     public function creator(){
         return $this->belongsTo(User::class);
     }
-    public function assignee(){
-        return $this->belongsTo(User::class);
-    }
 
 }
