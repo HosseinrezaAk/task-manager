@@ -57,8 +57,5 @@ class User extends Authenticatable
         return $this->belongsToMany(Team::class,null,'users_ids','teams_ids');
     }
 
-    public function projectsCreated()
-    {
-        return $this->hasMany(Project::class,'user_id','creator_id');
-    }
+
 }
