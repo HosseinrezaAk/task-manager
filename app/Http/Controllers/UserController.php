@@ -12,11 +12,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return string[]
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return  [
+            'status' => 'success',
+            'response' => $users
+            ];
     }
 
     /**
