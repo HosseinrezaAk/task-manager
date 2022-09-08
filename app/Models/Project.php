@@ -24,7 +24,5 @@ class Project extends Model
         return $this->belongsTo(User::class, 'creatorID'); // warning : we are using non-relational DB
     }
 
-    public function assignee(){
-        return $this->belongsTo(User::class, 'assigneeID');// warning : we are using non-relational DB
-    }
+
 }
