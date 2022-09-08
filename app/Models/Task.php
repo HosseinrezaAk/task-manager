@@ -21,7 +21,7 @@ class Task extends Model
     }
 
     public function assignee(){
-
+        return $this->belongsTo(User::class);
     }
 
 }
