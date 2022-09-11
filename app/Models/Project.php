@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 
 /**
  * @property string name
@@ -18,7 +19,11 @@ class Project extends Model
         'name',
 
     ];
-    public function team()
+
+    /**
+     * @return BelongsTo
+     */
+    public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
     }
