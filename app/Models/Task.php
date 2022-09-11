@@ -33,7 +33,11 @@ class Task extends Model
         return $this->belongsTo(User::class , 'assigneeID');
     }
 
-    public function creator(){
+    /**
+     * @return BelongsTo
+     */
+    public function creator(): BelongsTo
+    {
         return $this->belongsTo(User::class, 'creatorID');
     }
 
