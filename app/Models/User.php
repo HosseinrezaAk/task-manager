@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Jenssegers\Mongodb\Relations\BelongsToMany;
 use Laravel\Sanctum\HasApiTokens;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
@@ -52,7 +53,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function teams()
+    /**
+     * @return BelongsToMany
+     */
+    public function teams(): BelongsToMany
     {
         return $this->belongsToMany(Team::class,null,'users_ids','teams_ids');
     }
