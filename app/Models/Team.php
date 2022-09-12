@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Relations\BelongsToMany;
+
 /**
  * @property string name
  */
@@ -18,8 +20,10 @@ class Team extends Model
     ];
 
 
-
-    public function users()
+    /**
+     * @return BelongsToMany
+     */
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, null,'teams_ids','users_ids');
     }
