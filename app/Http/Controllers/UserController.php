@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Http\Response;
 
 
 class UserController extends Controller
@@ -12,15 +12,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return string[]
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         $users = User::all();
-        return  [
-            'status' => 'success',
-            'response' => $users
-            ];
+        return response($users);
     }
 
 
