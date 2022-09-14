@@ -25,10 +25,10 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return User
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $userData = $request->all();
         $user = new User;
@@ -36,7 +36,7 @@ class UserController extends Controller
         $user->password = $userData['password'];
         $user->save();
 
-        return  $user;
+        return  Response::json($user);
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
