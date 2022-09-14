@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Response;
 
 
 class UserController extends Controller
@@ -12,12 +13,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function index(): Response
+    public function index(): JsonResponse
     {
         $users = User::all();
-        return response($users);
+        return Response::json($users);
     }
 
 
