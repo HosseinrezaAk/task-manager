@@ -18,7 +18,10 @@ class UserController extends Controller
     public function index(): JsonResponse
     {
         $users = User::all();
-        return Response::json($users);
+        return Response::json([
+            'status'    => 'success',
+            'response'  => $users
+        ]);
     }
 
 
