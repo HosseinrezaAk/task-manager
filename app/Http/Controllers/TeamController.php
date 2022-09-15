@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return array
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $teams = Team::all();
-        return [
-          'result'=> $teams,
-        ];
+        return Response::json([
+            'status'    => 'success',
+            'response'  => $teams
+        ]);
     }
 
 
