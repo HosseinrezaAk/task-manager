@@ -39,7 +39,10 @@ class UserController extends Controller
         $user->password = $userData['password'];
         $user->save();
 
-        return  Response::json($user);
+        return Response::json([
+            'status'    => 'success',
+            'response'  => $user
+        ]);
     }
 
     /**
