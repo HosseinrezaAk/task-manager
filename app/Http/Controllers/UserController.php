@@ -81,6 +81,8 @@ class UserController extends Controller
         $user = User::query()->where('_id',$id);
         $user->delete();
 
-        return Response::json(["status"=>"Success"]);
+        return Response::json([
+            "status"=>"Success"
+        ]);
     }
 }
