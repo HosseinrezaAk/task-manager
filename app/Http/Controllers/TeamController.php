@@ -29,10 +29,10 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $teamData = $request->all();
         $team  = new Team;
@@ -48,11 +48,11 @@ class TeamController extends Controller
         }
 
 
-        return [
+        return  Response::json([
             'status'=> 'success',
             'team' => $team
 
-        ];
+        ]);
     }
 
     /**
@@ -84,7 +84,7 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
      * @return array
      */
