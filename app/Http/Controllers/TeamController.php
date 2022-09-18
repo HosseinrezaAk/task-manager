@@ -58,16 +58,17 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return array
+     * @param  string  $id
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(string $id): JsonResponse
     {
         $team = Team::find($id);
 
-        return [
-            'result' => $team
-        ];
+        return Response::json([
+            'status' => 'success',
+            'response' => $team
+        ]);
     }
 
     /**
