@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\User;
+
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
@@ -23,9 +26,9 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return array
+     * @return JsonResponse
      */
-    public function store(Request $request, $creatorID): array
+    public function store(Request $request, $creatorID): JsonResponse
     {
 
         $projectData = $request->all();
@@ -46,10 +49,10 @@ class ProjectController extends Controller
         $project->assignee()->associate($assignee)->save();
         $project->save();
 
-        return [
+        return Response::json([
             'status'=>'success',
             'response' => $project
-        ];
+        ]);
     }
 
     /**
