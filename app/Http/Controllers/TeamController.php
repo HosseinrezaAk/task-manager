@@ -121,16 +121,16 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return string[]
+     * @param string $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(string $id): JsonResponse
     {
         $team = Team::find($id);
         $team->delete();
 
-        return [
+        return Response::json([
             'status'=>'success'
-        ];
+        ]);
     }
 }
