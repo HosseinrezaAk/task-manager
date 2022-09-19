@@ -71,25 +71,16 @@ class TeamController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
-     * @return array
+     * @param string $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id): JsonResponse
     {
         $teamData = $request->all();
         $team = Team::find($id);
@@ -121,10 +112,10 @@ class TeamController extends Controller
         }
         $team->users()->sync($userIDs); // set the userIDs for the team
         $team->save();
-        return [
+        return Response::json([
             'status'=>'success',
-            'result'=> $team
-        ];
+            'response'=> $team
+        ]);
     }
 
     /**
