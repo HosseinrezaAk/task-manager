@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Team;
 use App\Models\User;
 
 use Illuminate\Http\JsonResponse;
@@ -34,19 +35,16 @@ class ProjectController extends Controller
         $projectData = $request->all();
         $validator = Validator::make($projectData,[
             "name" => ["required","string","max:50"],
-            "assigneeID" => ["required","string"]
+            "teamID" => ["required","string"]
         ]);
         if($validator->fails()){
             abort(400,$validator->errors());
         }
+        $team = Team::find($projectData['teamID']);
+
         $project = new Project;
-        $creator = User::find($creatorID);
-        $assignee = User::find($projectData['assigneeID']);
-
         $project->name = $projectData['name'];
-
-        $project->creator()->associate($creator)->save();
-        $project->assignee()->associate($assignee)->save();
+        $project->team()->associate($team)->save();
         $project->save();
 
         return Response::json([
