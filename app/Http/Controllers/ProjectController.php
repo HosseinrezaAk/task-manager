@@ -23,6 +23,9 @@ class ProjectController extends Controller
     {
 
         $teams = Team::query()->whereIn('users_ids',[$userID])->get(); // those team that specific user are in them
+        /**
+         * query for projects that specific user are in the team of that project
+         */
         $projects = Project::query()->with(['team' ])
             ->whereHas('team' , function ($q) use($userID) {
                 $q->whereIn('users_ids',[$userID]);
