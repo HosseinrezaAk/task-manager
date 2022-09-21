@@ -22,7 +22,7 @@ class ProjectController extends Controller
     public function index(string $userID): JsonResponse
     {
 
-        $teams = Team::query()->whereIn('users_ids',[$userID])->get();
+        $teams = Team::query()->whereIn('users_ids',[$userID])->get(); // those team that specific user are in them
         $projects = Project::query()->with(['team' ])
             ->whereHas('team' , function ($q) use($userID) {
                 $q->whereIn('users_ids',[$userID]);
