@@ -26,7 +26,7 @@ class ProjectController extends Controller
         /**
          * query for projects that specific user are in the team of that project
          */
-        $projects = Project::query()->with(['team' ])
+        $projects = Project::query()->with(['team'])
             ->whereHas('team' , function ($q) use($userID) {
                 $q->whereIn('users_ids',[$userID]);
             })
@@ -71,12 +71,16 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(string $id): JsonResponse
     {
-        //
+
+        return Response::json([
+            'status'    => 'success',
+            'response'  =>
+        ]);
     }
 
 
