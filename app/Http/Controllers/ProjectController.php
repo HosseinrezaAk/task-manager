@@ -21,11 +21,17 @@ class ProjectController extends Controller
      */
     public function index(string $userID): JsonResponse
     {
-        $projects = Project::all();
-        $teams = Team::query()->whereIn('users_ids',$userID)->get();
+
+        $teams = Team::query()->whereIn('users_ids',[$userID])->get();
+        $projects = Project::query()->with(['team' ])
+            ->whereHas('team' , function ($q) use($userID) {
+                $q->whereIn('users_ids',[$userID]);
+            })
+        ->get();
+
         return Response::json([
             'status' => 'success',
-            'response'=> $teams
+            'response'=> $projects
         ]);
     }
 
