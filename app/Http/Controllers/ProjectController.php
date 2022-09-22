@@ -71,11 +71,12 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param string $id
+     * @param string $projectID
      * @return JsonResponse
      */
-    public function show(string $id): JsonResponse
+    public function show(string $projectID): JsonResponse
     {
+
 
         return Response::json([
             'status'    => 'success',
