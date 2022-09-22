@@ -29,7 +29,7 @@ class ProjectController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function store(Request $request, $creatorID): JsonResponse
+    public function store(Request $request): JsonResponse
     {
 
         $projectData = $request->all();
