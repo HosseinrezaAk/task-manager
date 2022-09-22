@@ -69,18 +69,18 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified project
      *
      * @param string $projectID
      * @return JsonResponse
      */
     public function show(string $projectID): JsonResponse
     {
-
+        $project = Project::query()->where('_id',$projectID)->get();
 
         return Response::json([
             'status'    => 'success',
-            'response'  =>
+            'response'  => $project
         ]);
     }
 
