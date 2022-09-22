@@ -16,11 +16,17 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param string $userID
+     * @return JsonResponse
      */
-    public function index()
+    public function index(string $userID): JsonResponse
     {
-        //
+        $projects = Project::all();
+        $teams = Team::query()->whereIn('users_ids',$userID)->get();
+        return Response::json([
+            'status' => 'success',
+            'response'=> $teams
+        ]);
     }
 
     /**
@@ -64,16 +70,6 @@ class ProjectController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
