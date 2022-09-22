@@ -55,7 +55,7 @@ class ProjectController extends Controller
         if($validator->fails()){
             abort(400,$validator->errors());
         }
-        $team = Team::find($projectData['teamID']);
+        $team = Team::query()->where('_id',$projectData['teamID'])->first();
 
         $project = new Project;
         $project->name = $projectData['name'];
