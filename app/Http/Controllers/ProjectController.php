@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all projects of a specific user
      *
      * @param string $userID
      * @return JsonResponse
