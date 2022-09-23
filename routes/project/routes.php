@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('users/{userID}/get-projects',[ProjectController::class,'index']);
     Route::get('{projectID}',[ProjectController::class,'show']);
     Route::patch('{projectID}',[ProjectController::class,'update']);
+    Route::delete('{projectID}',[ProjectController::class,'destroy']);
 
         /**
          * get-all-projects

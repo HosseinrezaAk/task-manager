@@ -114,11 +114,15 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  string  $projectID
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(string $projectID): JsonResponse
     {
-        //
+
+        Project::query()->where('_id',$projectID)->delete();
+        return Response::json([
+            'status'=>'success'
+        ]);
     }
 }
