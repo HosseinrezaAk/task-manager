@@ -85,8 +85,6 @@ class TeamController extends Controller
         $teamData = $request->all();
         $team = Team::find($id);
         $teamOldUsers = $team->users_ids;
-
-        (json_encode($teamOldUsers));
         $temp = [];
         $userDiff = array_diff($teamData['userIDs'],$teamOldUsers);
         $userDiff = array_merge($temp,$userDiff); // users who are not in that team anymore

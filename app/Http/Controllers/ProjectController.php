@@ -89,13 +89,26 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param string $id
+     * @param string $projectID
      * @return JsonResponse
      */
-    public function update(Request $request, string $id): JsonResponse
+    public function update(Request $request, string $projectID): JsonResponse
     {
-
-        return Response::json();
+        $params  = $request->all();
+        $newTeam = Team::query()
+            ->where('_id',$params['teamID'])->first();
+        $project = Project::query()
+            ->where('_id',$projectID)
+            ->first();
+        /**
+         * implement update section
+         */
+        $project->update($params);
+        $project->team()->associate($newTeam)->save();
+        return Response::json([
+            'status'    => 'success',
+            'response'  => $project
+        ]);
     }
 
     /**
