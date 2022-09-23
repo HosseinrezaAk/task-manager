@@ -89,12 +89,13 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $id
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id): JsonResponse
     {
-        //
+
+        return Response::json();
     }
 
     /**

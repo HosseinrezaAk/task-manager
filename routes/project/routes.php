@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('/create',[ProjectController::class, 'store']);
     Route::get('users/{userID}/get-projects',[ProjectController::class,'index']);
     Route::get('{projectID}',[ProjectController::class,'show']);
+    Route::patch('{projectID}',[ProjectController::class,'update']);
+
         /**
          * get-all-projects
          * get-projects
