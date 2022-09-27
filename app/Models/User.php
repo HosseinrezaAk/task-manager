@@ -70,6 +70,10 @@ class User extends Authenticatable
         return $this->belongsTo(Project::class,'projectID');
     }
 
+    public function task()
+    {
+
+    }
 
 
 
