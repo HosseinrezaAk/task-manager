@@ -27,4 +27,6 @@ class Team extends Model
     {
         return $this->belongsToMany(User::class, null,'teams_ids','users_ids');
     }
+
+
 }
