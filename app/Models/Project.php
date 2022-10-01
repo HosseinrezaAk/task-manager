@@ -23,12 +23,15 @@ class Project extends Model
     /**
      * @return BelongsTo
      */
-    public function team(): BelongsTo
+    public function assigneeTeam(): BelongsTo
     {
-        return $this->belongsTo(Team::class, 'teamID');
+        return $this->belongsTo(Team::class, 'assigneeTeamID');
     }
 
-    public function assigneeUser()
+    /**
+     * @return BelongsTo
+     */
+    public function assigneeUser() : BelongsTo
     {
         return $this->belongsTo(User::class, "assigneeUserID");
 
