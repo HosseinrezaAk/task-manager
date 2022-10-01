@@ -62,14 +62,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Team::class,null,'users_ids','teams_ids');
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function project(): BelongsTo
-    {
-        return $this->belongsTo(Project::class,'projectID');
-    }
-
 
 
 
