@@ -30,7 +30,7 @@ class Project extends Model
 
     public function assigneeUser()
     {
-
+        return $this->belongsTo(User::class, "assigneeUserID");
 
     }
 
