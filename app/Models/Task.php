@@ -28,17 +28,17 @@ class Task extends Model
     /**
      * @return BelongsTo
      */
-    public function assignee(): BelongsTo
+    public function assigneeUser(): BelongsTo
     {
-        return $this->belongsTo(User::class , 'assigneeID');
+        return $this->belongsTo(User::class , 'assigneeUserID');
     }
 
     /**
      * @return BelongsTo
      */
-    public function creator(): BelongsTo
+    public function creatorUser(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'creatorID');
+        return $this->belongsTo(User::class, 'creatorUserID');
     }
 
 }
