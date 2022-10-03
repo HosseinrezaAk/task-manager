@@ -37,9 +37,9 @@ class Project extends Model
 
     }
 
-    public function creatorUser()
+    public function creatorUser() : BelongsTo
     {
-
+        return $this->belongsTo(User::class,"creatorUserID");
     }
 
 
