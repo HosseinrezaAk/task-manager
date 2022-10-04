@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
         Route::post('/create',[UserController::class,'store']);
         Route::get('/',[UserController::class,'index']);
+        Route::patch('/update/{userID}', [UserController::class, 'update']);
         Route::delete('/delete/{id}',[UserController::class,'destroy']);
 
         /**
