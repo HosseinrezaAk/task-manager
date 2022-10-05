@@ -70,6 +70,10 @@ class UserController extends Controller
         $updateData = $request->all();
         $user = User::query()->where('_id',$userID)->get();
 
+        return Response::json([
+            'status'    => 'success',
+            'response'  =>
+        ]);
     }
 
     /**
