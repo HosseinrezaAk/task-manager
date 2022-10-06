@@ -68,11 +68,14 @@ class UserController extends Controller
     public function update(Request $request, string $userID): JsonResponse
     {
         $updateData = $request->all();
-        $user = User::query()->where('_id',$userID)->get();
+        $user = User::query()
+            ->where('_id',$userID)
+            ->get();
+        $user->update($updateData);
 
         return Response::json([
             'status'    => 'success',
-            'response'  =>
+            'response'  => $user
         ]);
     }
 
