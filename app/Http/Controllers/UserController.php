@@ -70,8 +70,7 @@ class UserController extends Controller
         $updateData = $request->all();
         $user = User::query()
             ->where('_id',$userID)
-            ->get();
-        $user->update($updateData);
+            ->update($updateData);
 
         return Response::json([
             'status'    => 'success',
