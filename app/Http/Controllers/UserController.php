@@ -49,7 +49,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param string $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function show(string $id)
     {
