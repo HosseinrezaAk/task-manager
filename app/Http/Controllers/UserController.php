@@ -51,7 +51,7 @@ class UserController extends Controller
      * @param string $id
      * @return JsonResponse
      */
-    public function show(string $id)
+    public function show(string $id): JsonResponse
     {
 
         return Response::json([
