@@ -56,6 +56,9 @@ class UserController extends Controller
         $user = User::query()
             ->where("_id",$id)
             ->get();
+        if(!$user){
+
+        }
 
         return Response::json([
             'status'    => 'success',
