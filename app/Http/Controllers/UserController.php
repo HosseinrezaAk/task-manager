@@ -53,6 +53,9 @@ class UserController extends Controller
      */
     public function show(string $id): JsonResponse
     {
+        $user = User::query()
+            ->where("_id",$id)
+            ->get();
 
         return Response::json([
             'status'    => 'success',
