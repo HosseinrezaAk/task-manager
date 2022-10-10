@@ -48,13 +48,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param string $id
+     * @param string $userID
      * @return JsonResponse
      */
-    public function show(string $id): JsonResponse
+    public function show(string $userID): JsonResponse
     {
         $user = User::query()
-            ->where("_id",$id)
+            ->where("_id",$userID)
             ->get();
         if(!$user){
 
