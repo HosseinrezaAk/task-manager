@@ -42,9 +42,10 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     * @param string $creatorID
      * @return JsonResponse
      */
-    public function store(Request $request, creatorID): JsonResponse
+    public function store(Request $request, string $creatorID): JsonResponse
     {
 
         $projectData = $request->all();
