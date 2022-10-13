@@ -64,6 +64,10 @@ class ProjectController extends Controller
         $project->name = $projectData['name'];
         $project->assigneeTeam()->associate($team)->save();
         $project->creatorUser()->associate($creator)->save();
+        if(isset($projectData["assigneeTeamID"])){
+
+        }
+
         $project->save();
 
         return Response::json([
