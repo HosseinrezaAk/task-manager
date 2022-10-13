@@ -62,10 +62,10 @@ class ProjectController extends Controller
 
         $project = new Project;
         $project->name = $projectData['name'];
-        $project->assigneeTeam()->associate($team)->save();
+
         $project->creatorUser()->associate($creator)->save();
         if(isset($projectData["assigneeTeamID"])){
-
+            $project->assigneeTeam()->associate($team)->save();
         }
 
         $project->save();
