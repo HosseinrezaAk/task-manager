@@ -65,12 +65,12 @@ class ProjectController extends Controller
 
         $project->creatorUser()->associate($creator)->save();
         if(isset($projectData["assigneeTeamID"])){
-            $team = Team::query()->where('_id',$projectData['teamID'])->first();
+            $team = Team::query()->where('_id',$projectData['assigneeTeamID'])->first();
             $project->assigneeTeam()->associate($team)->save();
         }
         if(isset($projectData["assigneeUserID"])){
-
-            $project->assigneeUser()->associate()->save();
+            $assigneeUser = User::query()->where('_id',$projectData['assigneeUserID'])->first();
+            $project->assigneeUser()->associate($assigneeUser)->save();
         }
 
         $project->save();
