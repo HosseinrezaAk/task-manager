@@ -57,7 +57,7 @@ class ProjectController extends Controller
             abort(400,$validator->errors());
         }
 
-        $team = Team::query()->where('_id',$projectData['teamID'])->first();
+
         $creator = User::query()->where('_id',$creatorID)->get();
 
         $project = new Project;
@@ -65,9 +65,11 @@ class ProjectController extends Controller
 
         $project->creatorUser()->associate($creator)->save();
         if(isset($projectData["assigneeTeamID"])){
+            $team = Team::query()->where('_id',$projectData['teamID'])->first();
             $project->assigneeTeam()->associate($team)->save();
         }
         if(isset($projectData["assigneeUserID"])){
+
             $project->assigneeUser()->associate()->save();
         }
 
