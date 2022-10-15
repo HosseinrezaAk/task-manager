@@ -51,14 +51,14 @@ class ProjectController extends Controller
         $projectData = $request->all();
         $validator = Validator::make($projectData,[
             "name" => ["required","string","max:50"],
-            "teamID" => ["required","string"]
+
         ]);
         if($validator->fails()){
             abort(400,$validator->errors());
         }
 
 
-        $creator = User::query()->where('_id',$creatorID)->get();
+        $creator = User::query()->where('_id',$creatorID)->first();
 
         $project = new Project;
         $project->name = $projectData['name'];
