@@ -116,15 +116,16 @@ class ProjectController extends Controller
          * implement update section
          */
         if(isset($params["assigneeTeamID"])){
-
+            $newTeam = Team::query()
+                ->where('_id',$params['assigneeTeamID'])->first();
+            $project->team()->associate($newTeam)->save();
         }
         if(isset($params["assigneeUserID"])){
 
         }
-        $newTeam = Team::query()
-            ->where('_id',$params['teamID'])->first();
+
         $project->update($params);
-        $project->team()->associate($newTeam)->save();
+
         return Response::json([
             'status'    => 'success',
             'response'  => $project
