@@ -108,14 +108,18 @@ class ProjectController extends Controller
     public function update(Request $request, string $projectID): JsonResponse
     {
         $params  = $request->all();
-        $newTeam = Team::query()
-            ->where('_id',$params['teamID'])->first();
+
         $project = Project::query()
             ->where('_id',$projectID)
             ->first();
         /**
          * implement update section
          */
+        if(isset($params["assigneeTeamID"])){
+
+        }
+        $newTeam = Team::query()
+            ->where('_id',$params['teamID'])->first();
         $project->update($params);
         $project->team()->associate($newTeam)->save();
         return Response::json([
