@@ -123,6 +123,7 @@ class ProjectController extends Controller
         if(isset($params["assigneeUserID"])){
             $newUser = User::query()
                 ->where('_id', $params["assigneeUserID"])->first();
+            $project->assigneeUser()->associate($newUser)->save();
 
         }
 
