@@ -119,6 +119,7 @@ class ProjectController extends Controller
             $newTeam = Team::query()
                 ->where('_id',$params['assigneeTeamID'])->first();
             $project->assigneeTeam()->associate($newTeam)->save();
+            $project->assigneeUser()->associate(null)->save();
         }
         if(isset($params["assigneeUserID"])){
             $newUser = User::query()
