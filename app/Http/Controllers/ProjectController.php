@@ -142,9 +142,12 @@ class ProjectController extends Controller
      *
      * @param  string  $projectID
      * @return JsonResponse
+     *
+     * TODO: Delete tasks of this project ,
      */
     public function destroy(string $projectID): JsonResponse
     {
+
 
         Project::query()->where('_id',$projectID)->delete();
         return Response::json([
