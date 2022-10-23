@@ -24,7 +24,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->all();
     }
 
     /**
