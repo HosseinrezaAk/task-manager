@@ -24,7 +24,7 @@ class TaskController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, string $creatorID)
     {
         $params = $request->all();
 
