@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -29,7 +30,9 @@ class TaskController extends Controller
     {
         $params = $request->all();
         $validator = Validator::make(
-
+            $params , [
+                "name" => ["required","string","max:50"],
+            ]
         );
 
         return Response::json([
