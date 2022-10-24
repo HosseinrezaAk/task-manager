@@ -57,6 +57,9 @@ class RouteServiceProvider extends ServiceProvider
                 /**
                  * Route for Task
                  */
+                Route::middleware('api')
+                    ->prefix('tasks')
+                    ->group(base_path('routes/task/routes.php'));
 
                 Route::middleware('api')
                     ->prefix('api')
