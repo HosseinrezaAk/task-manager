@@ -28,6 +28,9 @@ class TaskController extends Controller
     public function store(Request $request, string $creatorID): JsonResponse
     {
         $params = $request->all();
+        $validator = Validator::make(
+
+        );
 
         return Response::json([
             'status'    => 'success',
