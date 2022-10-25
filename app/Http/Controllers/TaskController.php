@@ -36,6 +36,8 @@ class TaskController extends Controller
         if($validator->fails()){
             abort(400,$validator->errors());
         }
+        $creator = User::query()
+            ->where("_id",$creatorID)->first();
 
         return Response::json([
             'status'    => 'success',
