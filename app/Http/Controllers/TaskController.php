@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -29,11 +30,12 @@ class TaskController extends Controller
     public function store(Request $request, string $creatorID): JsonResponse
     {
         $params = $request->all();
-        $validator = Validator::make(
-            $params , [
+        $validator = Validator::make($params, [
                 "name" => ["required","string","max:50"],
-            ]
-        );
+        ]);
+        if($validator->fails()){
+            abort(400,$validator->errors());
+        }
 
         return Response::json([
             'status'    => 'success',
