@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -38,6 +39,7 @@ class TaskController extends Controller
         }
         $creator = User::query()
             ->where("_id",$creatorID)->first();
+        $task = new Task;
 
         return Response::json([
             'status'    => 'success',
