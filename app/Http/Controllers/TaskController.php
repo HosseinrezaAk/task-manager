@@ -40,7 +40,7 @@ class TaskController extends Controller
         $creator = User::query()
             ->where("_id",$creatorID)->first();
         $task = new Task;
-
+        $task->name
         return Response::json([
             'status'    => 'success',
             'response'  => $task
