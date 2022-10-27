@@ -10,7 +10,6 @@ use Jenssegers\Mongodb\Eloquent\Model;
 
 /**
  * @property    string     name
- *
  */
 class Task extends Model
 {
@@ -19,7 +18,6 @@ class Task extends Model
     protected $collection = 'tm_tasks';
     protected $fillable = [
         'name',
-        'creator'
     ];
 
 
