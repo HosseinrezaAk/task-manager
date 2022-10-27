@@ -38,9 +38,12 @@ class TaskController extends Controller
             abort(400,$validator->errors());
         }
         $creator = User::query()
-            ->where("_id",$creatorID)->first();
+            ->where("_id",$creatorID)
+            ->first();
+
         $task = new Task;
         $task->name = $params['name'];
+        $task->creatorUser()->associate($creator)->save();
         return Response::json([
             'status'    => 'success',
             'response'  => $task
