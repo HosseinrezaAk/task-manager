@@ -40,7 +40,9 @@ class TaskController extends Controller
         $creator = User::query()
             ->where("_id",$creatorID)
             ->first();
-
+        $assigneeUser = User::query()
+            ->where("_id",$params["assigneeUserID"])
+            ->first();
         $task = new Task;
         $task->name = $params['name'];
         $task->creatorUser()->associate($creator)->save();
