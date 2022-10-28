@@ -37,15 +37,19 @@ class TaskController extends Controller
         if($validator->fails()){
             abort(400,$validator->errors());
         }
+        // Query section **
         $creator = User::query()
             ->where("_id",$creatorID)
             ->first();
         $assigneeUser = User::query()
             ->where("_id",$params["assigneeUserID"])
             ->first();
+
+        // Create Task section **
         $task = new Task;
         $task->name = $params['name'];
         $task->creatorUser()->associate($creator)->save();
+        $task->assigneeUser()->associate($assigneeUser)->save();
         return Response::json([
             'status'    => 'success',
             'response'  => $task
