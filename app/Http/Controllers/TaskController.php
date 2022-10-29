@@ -55,7 +55,7 @@ class TaskController extends Controller
         $task->name = $params['name'];
         $task->creatorUser()->associate($creator)->save();
         $task->assigneeUser()->associate($assigneeUser)->save();
-
+        $task->project()->associate($project)->save();
         return Response::json([
             'status'    => 'success',
             'response'  => $task
