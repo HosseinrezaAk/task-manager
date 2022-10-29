@@ -28,7 +28,7 @@ class TaskController extends Controller
      * @param string    $creatorID
      * @return JsonResponse
      */
-    public function store(Request $request, string $creatorID): JsonResponse
+    public function store(Request $request, string $creatorID, string $projectID): JsonResponse
     {
         $params = $request->all();
         $validator = Validator::make($params, [
