@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -45,12 +46,16 @@ class TaskController extends Controller
         $assigneeUser = User::query()
             ->where("_id",$params["assigneeUserID"])
             ->first();
+        $project = Project::query()
+            ->where("_id", $projectID)
+            ->first();
 
         // Create Task section **
         $task = new Task;
         $task->name = $params['name'];
         $task->creatorUser()->associate($creator)->save();
         $task->assigneeUser()->associate($assigneeUser)->save();
+
         return Response::json([
             'status'    => 'success',
             'response'  => $task
