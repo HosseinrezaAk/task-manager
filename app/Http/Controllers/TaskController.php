@@ -26,6 +26,7 @@ class TaskController extends Controller
      *
      * @param Request   $request
      * @param string    $creatorID
+     * @param string    $projectID
      * @return JsonResponse
      */
     public function store(Request $request, string $creatorID, string $projectID): JsonResponse
