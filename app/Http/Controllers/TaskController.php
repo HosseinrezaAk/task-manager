@@ -74,7 +74,11 @@ class TaskController extends Controller
      */
     public function show(Request $request, string $taskID)
     {
-        //
+
+        return Response::json([
+            'status'    => 'success',
+            'response'  => $task
+        ]);
     }
 
     /**
