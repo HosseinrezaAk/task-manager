@@ -51,6 +51,10 @@ class TaskController extends Controller
             ->first();
 
         // Create Task section **
+
+        /*
+         * TODO IF the user in the same team as the project team_id of the task
+         */
         $task = new Task;
         $task->name = $params['name'];
         $task->creatorUser()->associate($creator)->save();
