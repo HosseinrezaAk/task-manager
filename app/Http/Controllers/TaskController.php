@@ -72,7 +72,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request, string $taskID)
     {
         //
     }
