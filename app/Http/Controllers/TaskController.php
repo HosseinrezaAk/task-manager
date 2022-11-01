@@ -70,7 +70,7 @@ class TaskController extends Controller
      * Display the specified resource.
      *
      * @param  string  $taskID
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function show(Request $request, string $taskID)
     {
