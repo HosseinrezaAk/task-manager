@@ -77,7 +77,9 @@ class TaskController extends Controller
         $task = Task::query()
             ->where("_id",$taskID)
             ->first();
-
+        /**
+         * TODO : Check if the user is eligible for seeing this task
+         */
         return Response::json([
             'status'    => 'success',
             'response'  => $task
