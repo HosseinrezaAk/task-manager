@@ -74,6 +74,9 @@ class TaskController extends Controller
      */
     public function show(Request $request, string $taskID)
     {
+        $task = Task::query()
+            ->where("_id",$taskID)
+            ->first();
 
         return Response::json([
             'status'    => 'success',
