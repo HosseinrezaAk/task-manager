@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/create/{creatorID}/projects/{projectID}',[TaskController::class,'store']);
 Route::get('/{taskID}',[TaskController::class,'show']);
+Route::delete('/{taskID}',[TaskController::class, 'destroy']);
 /**
  *
  */
