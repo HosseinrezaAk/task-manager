@@ -72,7 +72,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return JsonResponse
      */
-    public function show(Request $request, string $taskID)
+    public function show(Request $request, string $taskID): JsonResponse
     {
         $task = Task::query()
             ->where("_id",$taskID)
