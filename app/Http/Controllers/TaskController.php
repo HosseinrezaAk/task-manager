@@ -60,6 +60,7 @@ class TaskController extends Controller
         $task->creatorUser()->associate($creator)->save();
         $task->assigneeUser()->associate($assigneeUser)->save();
         $task->project()->associate($project)->save();
+        $task->save();
         return Response::json([
             'status'    => 'success',
             'response'  => $task
@@ -79,6 +80,7 @@ class TaskController extends Controller
             ->first();
         /**
          * TODO : Check if the user is eligible for seeing this task
+         * TODO : Show objects of those IDS in the return object
          */
         return Response::json([
             'status'    => 'success',
