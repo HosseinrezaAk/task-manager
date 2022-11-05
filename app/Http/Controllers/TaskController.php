@@ -103,7 +103,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  string  $id
+     * @param  string  $taskID
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
