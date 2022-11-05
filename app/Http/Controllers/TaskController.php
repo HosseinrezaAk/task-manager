@@ -106,7 +106,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return \Illuminate\Http\Response
      */
-    public function destroy( string $taskID)
+    public function destroy(Request $request,  string $taskID)
     {
         //
     }
