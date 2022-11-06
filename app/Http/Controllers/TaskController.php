@@ -111,7 +111,7 @@ class TaskController extends Controller
         //
 
         return Response::json([
-            'status'    => 'success'
+            'status'    => 'task removed successfully'
         ]);
     }
 }
