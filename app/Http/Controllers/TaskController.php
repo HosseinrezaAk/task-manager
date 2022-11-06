@@ -106,7 +106,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return JsonResponse
      */
-    public function destroy(Request $request,  string $taskID)
+    public function destroy(Request $request,  string $taskID): JsonResponse
     {
         //
 
