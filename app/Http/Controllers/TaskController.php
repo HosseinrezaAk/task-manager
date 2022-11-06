@@ -104,7 +104,7 @@ class TaskController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  string  $taskID
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function destroy(Request $request,  string $taskID)
     {
