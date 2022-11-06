@@ -109,5 +109,9 @@ class TaskController extends Controller
     public function destroy(Request $request,  string $taskID)
     {
         //
+
+        return Response::json([
+            'status'    => 'success'
+        ]);
     }
 }
