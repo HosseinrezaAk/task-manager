@@ -109,7 +109,10 @@ class TaskController extends Controller
     public function destroy(Request $request,  string $taskID): JsonResponse
     {
         //
-
+        Task::destroy($taskID);
+        /*
+         * TODO : CHECK if user eligible for deleting that task or not
+         */
         return Response::json([
             'status'    => 'task removed successfully'
         ]);
