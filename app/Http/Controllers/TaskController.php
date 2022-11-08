@@ -20,6 +20,8 @@ class TaskController extends Controller
     public function index(): JsonResponse
     {
         //
+        $tasks = Task::all();
+
         return Response::json([
             'status'    => 'success',
             'response'  =>
