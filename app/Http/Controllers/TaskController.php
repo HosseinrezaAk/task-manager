@@ -24,7 +24,7 @@ class TaskController extends Controller
 
         return Response::json([
             'status'    => 'success',
-            'response'  =>
+            'response'  => $tasks
         ]);
     }
 
