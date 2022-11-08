@@ -20,6 +20,10 @@ class TaskController extends Controller
     public function index(): JsonResponse
     {
         //
+        return Response::json([
+            'status'    => 'success',
+            'response'  =>
+        ]);
     }
 
     /**
