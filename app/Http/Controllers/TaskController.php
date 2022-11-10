@@ -101,7 +101,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $taskID)
     {
         //
     }
