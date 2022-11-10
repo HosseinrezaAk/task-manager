@@ -98,7 +98,7 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  string  $id
+     * @param  string  $taskID
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
