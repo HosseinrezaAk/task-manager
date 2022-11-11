@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // define admin routes here
 
-    Route::post('/create',[ProjectController::class, 'store']);
+    Route::post('/create/{creatorID}',[ProjectController::class, 'store']);
     Route::get('users/{userID}/get-projects',[ProjectController::class,'index']);
     Route::get('{projectID}',[ProjectController::class,'show']);
     Route::patch('{projectID}',[ProjectController::class,'update']);
