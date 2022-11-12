@@ -99,7 +99,7 @@ class TaskController extends Controller
      *
      * @param Request $request
      * @param  string  $taskID
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function update(Request $request, string $taskID)
     {
