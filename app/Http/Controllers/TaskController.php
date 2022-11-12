@@ -104,6 +104,7 @@ class TaskController extends Controller
     public function update(Request $request, string $taskID): JsonResponse
     {
         //
+        $params = $request->all();
 
         return Response::json([
             'status'    => 'success',
