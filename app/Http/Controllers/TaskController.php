@@ -105,6 +105,9 @@ class TaskController extends Controller
     {
         //
         $params = $request->all();
+        $task = Task::query()
+            ->where("_id",$taskID)
+            ->first();
 
         return Response::json([
             'status'    => 'success',
