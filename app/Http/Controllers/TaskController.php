@@ -108,6 +108,9 @@ class TaskController extends Controller
         $task = Task::query()
             ->where("_id",$taskID)
             ->first();
+        $newUser = User::query()
+            ->where("_id",$params["assigneeUserID"])
+            ->first();
 
         return Response::json([
             'status'    => 'success',
