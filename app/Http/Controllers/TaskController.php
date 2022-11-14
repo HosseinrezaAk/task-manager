@@ -111,6 +111,7 @@ class TaskController extends Controller
         $newUser = User::query()
             ->where("_id",$params["assigneeUserID"])
             ->first();
+        $task->assigneeUser->associate($newUser)->save();
 
         return Response::json([
             'status'    => 'success',
