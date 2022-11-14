@@ -112,7 +112,7 @@ class TaskController extends Controller
             ->where("_id",$params["assigneeUserID"])
             ->first();
         $task->assigneeUser->associate($newUser)->save();
-
+        $task->update($params);
         return Response::json([
             'status'    => 'success',
             'response'  => $task
