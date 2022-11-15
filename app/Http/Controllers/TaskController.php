@@ -101,7 +101,7 @@ class TaskController extends Controller
      * @param  string  $taskID
      * @return JsonResponse
      */
-    public function update(Request $request, string $taskID): JsonResponse
+    public function update(Request $request, string $taskID)
     {
         //
         $params = $request->all();
@@ -111,8 +111,7 @@ class TaskController extends Controller
         $newUser = User::query()
             ->where("_id",$params["assigneeUserID"])
             ->first();
-        $task->assigneeUser->associate($newUser)->save();
-        $task->update($params);
+
         return Response::json([
             'status'    => 'success',
             'response'  => $task

@@ -9,6 +9,7 @@ Route::post('/create/{creatorID}/projects/{projectID}',[TaskController::class,'s
 Route::get('/{taskID}',[TaskController::class,'show']);
 Route::delete('/{taskID}',[TaskController::class, 'destroy']);
 Route::get('',[TaskController::class,'index']);
+Route::patch('{taskID}',[TaskController::class,'update']);
 /**
  *
  */
