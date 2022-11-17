@@ -80,14 +80,15 @@ class TaskController extends Controller
      * @param  string  $currentUserID
      * @return JsonResponse
      */
-    public function show(Request $request, string $taskID, string $currentUserID): JsonResponse
+    public function show(Request $request, string $taskID, string $currentUserID):JsonResponse
     {
         $task = Task::query()
             ->where("_id",$taskID)
             ->first();
-        if($currentUserID != $task->assigneeuserID)
-        {
 
+        if($currentUserID != $task->assigneeUserID)
+        {
+            abort(400,trans("You are not eligible to see the result"));
         }
 
         /**
