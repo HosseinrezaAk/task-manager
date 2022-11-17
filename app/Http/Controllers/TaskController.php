@@ -85,7 +85,11 @@ class TaskController extends Controller
         $task = Task::query()
             ->where("_id",$taskID)
             ->first();
-        if()
+        if($currentUserID != $task->assigneeuserID)
+        {
+
+        }
+
         /**
          * TODO : Check if the user is eligible for seeing this task
          * TODO : Show objects of those IDS in the return object
