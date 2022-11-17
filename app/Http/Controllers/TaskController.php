@@ -77,6 +77,7 @@ class TaskController extends Controller
      * Display the specified resource.
      *
      * @param  string  $taskID
+     * @param  string  $currentUserID
      * @return JsonResponse
      */
     public function show(Request $request, string $taskID): JsonResponse
