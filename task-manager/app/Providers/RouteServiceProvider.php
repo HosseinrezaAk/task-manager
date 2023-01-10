@@ -61,6 +61,14 @@ class RouteServiceProvider extends ServiceProvider
                     ->prefix('tasks')
                     ->group(base_path('routes/task/routes.php'));
 
+                /**
+                 * Route for Auth
+                 */
+                Route::middleware('api')
+                    ->prefix('auth')
+                    ->group(base_path('routes/auth/routes.php'));
+
+
                 Route::middleware('api')
                     ->prefix('api')
                     ->group(base_path('routes/api.php'));
