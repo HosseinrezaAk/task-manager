@@ -13,7 +13,8 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
 /**
  * @property string _id
- * @property string name
+ * @property string username
+ * @property string email
  * @property string password
  */
 class User extends Authenticatable
