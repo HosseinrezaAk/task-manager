@@ -1,5 +1,0 @@
-{
-    "require": {
-        "laravel/sanctum": "^3.2"
-    }
-}
