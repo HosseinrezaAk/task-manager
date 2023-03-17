@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Log;
 
 class Authenticate extends Middleware
 {
@@ -12,10 +13,17 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    protected function redirectTo($request)
+    protected function authenticate($request, array $guards)
     {
-        if (! $request->expectsJson()) {
-            return route('login');
+        if(empty($guards)){
+            $guards = [null];
         }
+        foreach( $guards as $guard){
+            dump($guard);
+            if($this->auth->guard($guard)->check()){
+                return $this->auth->shouldUse($guard);
+            }
+        }
+        abort(401, trans("UNAUTHORIZED"));
     }
 }
