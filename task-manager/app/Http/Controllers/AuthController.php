@@ -22,16 +22,16 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login',"register"]]);
+        $this->middleware("auth:api", ["except" => ["login","register"]]);
     }
 
 
     public function register(Request $request)
     {
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only("username", "password");
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
-            'password' => 'required|string|min:6',
+            "username" => "required|string|max:255",
+            "password" => "required|string|min:6",
         ]);
 
         if ($validator->fails()) {
@@ -39,15 +39,15 @@ class AuthController extends Controller
         }
 
         $user = User::create([
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
+            "username" => $request->username,
+            "password" => bcrypt($request->password),
         ]);
 
         $token = $this->guard()->attempt($credentials);
 
         return response()->json([
-            'token' => $token,
-            'user' => $user
+            "token" => $token,
+            "user" => $user
         ]);
     }
 
@@ -61,12 +61,12 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only("username", "password");
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(["error" => "Unauthorized"], 401);
     }
 
     /**
@@ -78,7 +78,7 @@ class AuthController extends Controller
     {
         $this->guard()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(["message" => "Successfully logged out"]);
     }
 
 
@@ -108,9 +108,9 @@ class AuthController extends Controller
     protected function respondWithToken(string $token)
     {
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60
+            "access_token" => $token,
+            "token_type" => "bearer",
+            "expires_in" => $this->guard()->factory()->getTTL() * 60
         ]);
     }
 
