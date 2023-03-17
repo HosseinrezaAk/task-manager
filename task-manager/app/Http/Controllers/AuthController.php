@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
+
 class AuthController extends Controller
 {
 
@@ -70,6 +72,35 @@ class AuthController extends Controller
     }
 
 
+//    public function login(Request $request)
+//    {
+//        $credentials = $request->only('username', 'password');
+//
+//        if (! $token = JWTAuth::attempt($credentials)) {
+//            return response()->json(['error' => 'invalid_credentials'], 401);
+//        }
+//
+//        return response()->json(compact('token'));
+//    }
+
+
+
+
+    /**
+     * Get the token array structure.
+     *
+     * @param string $token
+     *
+     * @return JsonResponse
+     */
+    protected function respondWithToken(string $token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
 
     /**
      * Get the guard to be used during authentication.
