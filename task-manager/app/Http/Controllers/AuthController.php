@@ -52,10 +52,6 @@ class AuthController extends Controller
     }
 
 
-
-
-
-
     /**
      * Get a JWT token via given credentials.
      *
@@ -66,7 +62,6 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
-
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
@@ -74,33 +69,10 @@ class AuthController extends Controller
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 
-
-//    public function login(Request $request)
-//    {
-//        $credentials = $request->only('username', 'password');
-//
-//        if (! $token = JWTAuth::attempt($credentials)) {
-//            return response()->json(['error' => 'invalid_credentials'], 401);
-//        }
-//
-//        return response()->json(compact('token'));
-//    }
-
-
-    /**
-     * Get the authenticated User
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json($this->guard()->user());
-    }
-
     /**
      * Log the user out (Invalidate the token)
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -109,6 +81,20 @@ class AuthController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 
+
+
+
+
+
+    /**
+     * Get the authenticated User
+     *
+     * @return JsonResponse
+     */
+    public function currentUser()
+    {
+        return response()->json($this->guard()->user());
+    }
 
 
 
