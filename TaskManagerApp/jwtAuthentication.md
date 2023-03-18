@@ -16,7 +16,7 @@ Here I'm going to explain how I implement authentication for my app.
 <hr>
 <br>
 
-### <p align="center">Step 1:  jwt package installation  </p>
+### <p align="center">  jwt package installation  </p>
 
 The package used in this project is `tymon/jwt-auth` which you can install it like below:
 ```shell
@@ -57,3 +57,7 @@ It is the key that will be used to sign your tokens. How that happens exactly wi
 <hr>
 
 <br>
+
+Go to [This](https://jwt-auth.readthedocs.io/en/docs/quick-start/) website to see how setup your `model` and `controller`
+but remember you have to write your own middleware in `app/http/middleware/authenticate.php` and then use it in your 
+constructor of your controller.
