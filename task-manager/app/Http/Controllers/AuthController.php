@@ -30,7 +30,7 @@ class AuthController extends Controller
     {
         $credentials = $request->only("username", "password");
         $validator = Validator::make($request->all(), [
-            "username" => "required|string|max:255",
+            "username" => "required|string|max:255|unique:tm_users",
             "password" => "required|string|min:6",
         ]);
 
