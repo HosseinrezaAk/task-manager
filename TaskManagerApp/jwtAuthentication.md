@@ -67,4 +67,4 @@ constructor of your controller.
 
 ### <p align="center">  Why `tymon/jwt-auth` package?  </p>
 Because in this app our database is No-SQL (mongoDB) and `tymon/jwt-auth` is the best package I found to
-implement authentication in Laravel project which using mongoDB.
+implement authentication in Laravel project which connected to  mongoDB.
