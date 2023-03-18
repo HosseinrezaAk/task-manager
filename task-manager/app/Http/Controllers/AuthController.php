@@ -115,6 +115,16 @@ class AuthController extends Controller
     }
 
     /**
+     * Refresh a token.
+     *
+     * @return JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
      * Get the guard to be used during authentication.
      *
      * @return Guard
