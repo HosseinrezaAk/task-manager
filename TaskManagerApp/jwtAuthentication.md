@@ -61,3 +61,10 @@ It is the key that will be used to sign your tokens. How that happens exactly wi
 Go to [This](https://jwt-auth.readthedocs.io/en/docs/quick-start/) website to see how setup your `model` and `controller`
 but remember you have to write your own middleware in `app/http/middleware/authenticate.php` and then use it in your 
 constructor of your controller.
+
+
+<hr>
+
+### <p align="center">  Why `tymon/jwt-auth` package?  </p>
+Because in this app our database is No-SQL (mongoDB) and `tymon/jwt-auth` is the best package I found to
+implement authentication in Laravel project which using mongoDB.
