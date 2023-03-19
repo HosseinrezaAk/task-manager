@@ -33,15 +33,14 @@ class UserController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $userData = $request->all();
-        $user = new User;
-        $user->name = $userData['name'];
-        $user->password = $userData['password'];
-        $user->save();
+        $user = User::create([
+            'name' => $request->input('name'),
+            'password' => $request->input('password'),
+        ]);
 
-        return Response::json([
-            'status'    => 'success',
-            'response'  => $user
+        return response()->json([
+            'status' => 'success',
+            'response' => $user,
         ]);
     }
 
