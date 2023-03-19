@@ -52,16 +52,17 @@ class UserController extends Controller
      */
     public function show(string $userID): JsonResponse
     {
-        $user = User::query()
-            ->where("_id",$userID)
-            ->get();
-        if(!$user){
-
+        $user = User::find($userID);
+        if (!$user) {
+            return Response::json([
+                'status' => 'error',
+                'message' => 'User not found',
+            ]);
         }
 
         return Response::json([
-            'status'    => 'success',
-            'response'  => $user
+            'status' => 'success',
+            'user' => $user,
         ]);
     }
 
