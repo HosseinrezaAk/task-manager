@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -33,6 +34,18 @@ class UserController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'password' => 'required|min:6|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $validator->errors()->first(),
+            ]);
+        }
+
         $user = User::create([
             'name' => $request->input('name'),
             'password' => $request->input('password'),
@@ -77,14 +90,12 @@ class UserController extends Controller
      */
     public function update(Request $request, string $userID): JsonResponse
     {
-        $updateData = $request->all();
-        $user = User::query()
-            ->where('_id',$userID)
-            ->update($updateData);
+        $user = User::where('_id', $userID)->firstOrFail();
+        $user->update($request->all());
 
-        return Response::json([
-            'status'    => 'success',
-            'response'  => $user
+        return response()->json([
+            'status' => 'success',
+            'response' => $user
         ]);
     }
 
