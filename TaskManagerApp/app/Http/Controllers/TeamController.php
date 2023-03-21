@@ -103,7 +103,7 @@ class TeamController extends Controller
      */
     public function destroy(string $id): JsonResponse
     {
-        $team = Team::find($id);
+        $team = Team::findorfail($id);
         $team->users()->detach();
         $team->delete();
 

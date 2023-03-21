@@ -107,7 +107,8 @@ class UserController extends Controller
      */
     public function destroy(String $id): JsonResponse
     {
-        $user = User::query()->where('_id',$id);
+        $user = User::findorfail($id);
+        $user->teams()->detach();
         $user->delete();
 
         return Response::json([
