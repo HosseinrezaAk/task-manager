@@ -55,7 +55,7 @@ class TeamController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        $team = Team::find($id);
+        $team = Team::findorfail($id);
 
         return Response::json([
             'status' => 'success',
@@ -74,38 +74,25 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id): JsonResponse
     {
-        $teamData = $request->all();
-        $team = Team::find($id);
-        $teamOldUsers = $team->users_ids;
-        $temp = [];
-        $userDiff = array_diff($teamData['userIDs'],$teamOldUsers);
-        $userDiff = array_merge($temp,$userDiff); // users who are not in that team anymore
 
-        /**
-         * Delete teamID from the teams_ids of those users they are not in the team anymore
-         */
-        foreach($userDiff as $userID){
-            $theUser = User::find($userID);
-            $theUser->teams()->detach($id);
-            $theUser->save();
-        }
+        $team = Team::findorfail($id);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'userIDs' => 'array',
+        ]);
 
-        /**
-         * Update name and users
-         */
-        $team->name = $teamData['name'];
-        $userIDs = $teamData['userIDs'];
-        foreach ($userIDs as $userID){
-            $user = User::find($userID);
-            $user->teams()->attach($team); // set the teamID for users
-
-        }
-        $team->users()->sync($userIDs); // set the userIDs for the team
+        $team->name = $validatedData['name'];
         $team->save();
-        return Response::json([
-            'status'=>'success',
+
+        if (isset($validatedData['userIDs'])) {
+            $team->users()->sync($validatedData['userIDs']);
+        }
+
+        return response()->json([
+            'message' => 'Team updated successfully',
             'response'=> $team
         ]);
+
     }
 
     /**
@@ -117,6 +104,7 @@ class TeamController extends Controller
     public function destroy(string $id): JsonResponse
     {
         $team = Team::find($id);
+        $team->users()->detach();
         $team->delete();
 
         return Response::json([
