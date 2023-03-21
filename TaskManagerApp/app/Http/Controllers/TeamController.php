@@ -34,24 +34,16 @@ class TeamController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $teamData = $request->all();
-        $team  = new Team;
-        $team->name = $teamData['name'];
-        $userIDs = $teamData['userIDs'];
-        $team->save();
-        foreach($userIDs as $userID)
-        {
-            $user = User::find($userID);
-            $user->teams()->attach($team);
-            $team->users()->attach($user);
+        $team = Team::create([
+            'name' => $request->input('name'),
+        ]);
 
-        }
+        $userIDs = $request->input('userIDs');
+        $team->users()->attach($userIDs);
 
-
-        return  Response::json([
-            'status'=> 'success',
+        return response()->json([
+            'status' => 'success',
             'team' => $team
-
         ]);
     }
 
