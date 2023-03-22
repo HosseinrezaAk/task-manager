@@ -45,41 +45,27 @@ class ProjectController extends Controller
      * @param string $creatorID
      * @return JsonResponse
      */
-    public function store(Request $request, string $creatorID): JsonResponse
+    public function store(Request $request)
     {
-
-        $projectData = $request->all();
-        $validator = Validator::make($projectData,[
-            "name" => ["required","string","max:50"],
-
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'assigneeTeamID' => 'nullable|string|exists:teams,id',
+            'assigneeUserID' => 'nullable|string|exists:users,id',
+            'creator_user_id' => 'required|string|exists:users,id',
         ]);
-        if($validator->fails()){
-            abort(400,$validator->errors());
-        }
 
-
-        $creator = User::query()->where('_id',$creatorID)->first();
-
-        $project = new Project;
-        $project->name = $projectData['name'];
-
-        $project->creatorUser()->associate($creator)->save();
-        if(isset($projectData["assigneeTeamID"])){
-            $team = Team::query()->where('_id',$projectData['assigneeTeamID'])->first();
-            $project->assigneeTeam()->associate($team)->save();
-        }
-        if(isset($projectData["assigneeUserID"])){
-            $assigneeUser = User::query()->where('_id',$projectData['assigneeUserID'])->first();
-            $project->assigneeUser()->associate($assigneeUser)->save();
-        }
-
+        $project = new Project();
+        $project->name = $validatedData['name'];
+        $project->description = $validatedData['description'];
+        $project->assigneeTeam()->associate($validatedData['assignee_team_id']);
+        $project->assigneeUser()->associate($validatedData['assignee_user_id']);
+        $project->creatorUser()->associate($validatedData['creator_user_id']);
         $project->save();
 
-        return Response::json([
-            'status'=>'success',
-            'response' => $project
-        ]);
+        return response()->json(['message' => 'Project created successfully', 'project' => $project]);
     }
+
 
     /**
      * Display the specified project

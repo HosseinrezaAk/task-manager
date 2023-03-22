@@ -17,6 +17,7 @@ class Project extends Model
     protected $collection = 'tm_projects';
     protected $fillable = [
         'name',
+        'description'
 
     ];
 
