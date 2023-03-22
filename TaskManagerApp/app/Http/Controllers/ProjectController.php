@@ -52,15 +52,15 @@ class ProjectController extends Controller
             'description' => 'nullable|string',
             'assigneeTeamID' => 'nullable|string|exists:teams,id',
             'assigneeUserID' => 'nullable|string|exists:users,id',
-            'creator_user_id' => 'required|string|exists:users,id',
+            'creatorUserID' => 'required|string|exists:users,id',
         ]);
 
         $project = new Project();
         $project->name = $validatedData['name'];
         $project->description = $validatedData['description'];
-        $project->assigneeTeam()->associate($validatedData['assignee_team_id']);
-        $project->assigneeUser()->associate($validatedData['assignee_user_id']);
-        $project->creatorUser()->associate($validatedData['creator_user_id']);
+        $project->assigneeTeam()->associate($validatedData['assigneeTeamID']);
+        $project->assigneeUser()->associate($validatedData['assigneeUserID']);
+        $project->creatorUser()->associate($validatedData['creatorUserID']);
         $project->save();
 
         return response()->json(['message' => 'Project created successfully', 'project' => $project]);
@@ -95,9 +95,7 @@ class ProjectController extends Controller
     {
         $params  = $request->all();
 
-        $project = Project::query()
-            ->where('_id',$projectID)
-            ->first();
+        $project = Project::findorfail($projectID);
         /**
          * implement update section
          */

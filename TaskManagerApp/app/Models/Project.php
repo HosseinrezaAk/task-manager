@@ -9,7 +9,7 @@ use Jenssegers\Mongodb\Relations\BelongsTo;
 
 /**
  * @property string name
- *
+ * @property string description
  */
 class Project extends Model
 {
