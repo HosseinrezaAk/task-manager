@@ -13,10 +13,10 @@ class UserLoginTest extends TestCase
      *
      * @return void
      */
-    public function test_token_for_user()
+    public function test_register_user()
     {
         $response = $this->postJson('/auth/register',[
-            "username"=> "newUser2",
+            "username"=> "newUser3",
             "password"=> "123H@1234"
         ]);
 
@@ -24,6 +24,20 @@ class UserLoginTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 "token" => true
+            ]);
+    }
+
+
+    public function test_login_user(){
+        $response = $this->postJson("/auth/login",[
+            "username"=> "newUser2",
+            "password"=> "123H@1234"
+        ]);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                "access_token"=> true
             ]);
     }
 }
