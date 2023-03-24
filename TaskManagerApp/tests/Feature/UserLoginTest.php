@@ -15,8 +15,8 @@ class UserLoginTest extends TestCase
      */
     public function test_token_for_user()
     {
-        $response = $this->postJson('http://127.0.0.1:8000/auth/register',[
-            "username"=> "newUser1",
+        $response = $this->postJson('/auth/register',[
+            "username"=> "newUser2",
             "password"=> "123H@1234"
         ]);
 
