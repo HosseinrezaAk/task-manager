@@ -13,11 +13,11 @@ class UserLoginTest extends TestCase
      *
      * @return void
      */
-    public function check_token_for_user()
+    public function test_token_for_user()
     {
-        $response = $this->get('/auth/register',[
+        $response = $this->postJson('http://127.0.0.1:8000/auth/register',[
             "username"=> "newUser1",
-            "password"=> "123H@123"
+            "password"=> "123H@1234"
         ]);
 
         $response
