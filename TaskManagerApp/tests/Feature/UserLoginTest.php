@@ -13,10 +13,17 @@ class UserLoginTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function check_token_for_user()
     {
-        $response = $this->get('/');
+        $response = $this->get('/auth/register',[
+            "username"=> "newUser1",
+            "password"=> "123H@123"
+        ]);
 
-        $response->assertStatus(200);
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                "token" => true
+            ]);
     }
 }
