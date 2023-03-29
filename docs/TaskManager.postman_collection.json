@@ -1,0 +1,603 @@
+{
+	"info": {
+		"_postman_id": "662c7a15-45fc-416b-937f-5e30e587d43b",
+		"name": "TaskManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8260945"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user5\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3232/users/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3232",
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/delete/63239cfcd6214381850fb372",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"delete",
+								"63239cfcd6214381850fb372"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user1_updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/update/630770d3cc1c1280ef01f4b2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"update",
+								"630770d3cc1c1280ef01f4b2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/show/630770dfcc1c1280ef01f4b3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"show",
+								"630770dfcc1c1280ef01f4b3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Add Team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"team3\",\r\n    \"userIDs\":[\r\n        \"630770dfcc1c1280ef01f4b3\",\r\n        \"632c641a65cd241e9702baf3\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/teams/create",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"teams",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/teams/63011e7f312900abf7004ac6",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"teams",
+								"63011e7f312900abf7004ac6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/teams/",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"teams",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Specific team",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/teams/628fcb4c312900abf7004ac8",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"teams",
+								"628fcb4c312900abf7004ac8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific team",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"updatedTeam\",\r\n    \"userIDs\":[\r\n        \"630116fc312900abf7004abb\",\r\n        \"62c09871312900abf7004ac9\"\r\n       \r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/teams/63011e8c312900abf7004ac7",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"teams",
+								"63011e8c312900abf7004ac7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Add project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"proj7\",\r\n    \"assigneeTeamID\": \"\",\r\n    \"assigneeUserID\": \"630770dfcc1c1280ef01f4b3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/projects/create/630770d3cc1c1280ef01f4b2",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"projects",
+								"create",
+								"630770d3cc1c1280ef01f4b2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get projects of single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/projects/users/632c641a65cd241e9702baf3/get-projects",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"projects",
+								"users",
+								"632c641a65cd241e9702baf3",
+								"get-projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/projects/632cc57e1dfc9812620caf34",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"projects",
+								"632cc57e1dfc9812620caf34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific project",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"updated_proj7\",\r\n    \"assigneeUserID\": \"\",\r\n    \"assigneeTeamID\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/projects/634ad3460a4adc5c3108ee94",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"projects",
+								"634ad3460a4adc5c3108ee94"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specific project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/projects/632cd3b41dfc9812620caf36",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"projects",
+								"632cd3b41dfc9812620caf36"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Add task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"task_2\",\r\n    \"assigneeUserID\": \"630770dfcc1c1280ef01f4b3\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/tasks/create/630770d3cc1c1280ef01f4b2/projects/634ad2a50a4adc5c3108ee93",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"create",
+								"630770d3cc1c1280ef01f4b2",
+								"projects",
+								"634ad2a50a4adc5c3108ee93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/tasks/636b9e6aed7c9975140ed333/users/632c641a65cd241e9702baf2",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"636b9e6aed7c9975140ed333",
+								"users",
+								"632c641a65cd241e9702baf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/tasks/6368f7b0ed7c9975140ed332",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"6368f7b0ed7c9975140ed332"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/tasks",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"update_name_task\",\r\n    \"assigneeUserID\": \"632c641a65cd241e9702baf3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/tasks/636b9e6aed7c9975140ed333",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"636b9e6aed7c9975140ed333"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Hossein23252563321\",\r\n    \"password\": \"2Hos11AA3@1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Hossein23252356331\",\r\n    \"password\": \"2Hos11AA3@1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXV0aC9sb2dpbiIsImlhdCI6MTY3OTE2OTc3NCwiZXhwIjoxNjc5MTczMzc0LCJuYmYiOjE2NzkxNjk3NzQsImp0aSI6InF0cjlFenlCOW0xckVlcDQiLCJzdWIiOiI2NDE0YmI3ZmMzNTY2ODQxMzkwZTc5ZmIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.tF_Kd5jauj7QZWFAnxr2jr0Xe7qdbmyeDRxAgJGiF4E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base}}/auth/logout",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
